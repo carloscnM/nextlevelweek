@@ -5,6 +5,7 @@ import {Map, TileLayer, Marker} from 'react-leaflet';
 import {LeafletMouseEvent} from 'leaflet';
 
 import DropZone from '../../components/Dropzone';
+import SucessModal from '../../components/Modal/SucessModal/successModal';
 
 import axios from 'axios';
 import api from '../../services/api';
@@ -13,7 +14,6 @@ import './styles.css';
 import  logo from '../../assets/logo.svg';
 
 import Item from './interfaces/Item';
-import { Handler } from 'leaflet';
 
 interface IBGEUFResponse {
     sigla: string
@@ -30,7 +30,10 @@ const CreatePoints = () =>{
     const [ufs, setUfs] = useState<string[]>([]);
     const [cities, setCities] = useState<string[]>([]);
     const [initialPosition, setInitialPosition] = useState<[number, number]>([0,0]);
-    
+
+    const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+    const [messageModal, setMessageModal] = useState<string>('');
+     
     const [selectedUf, setSelectedUf] = useState('0');
     const [selectedCity, setSelectedCity] = useState('0');
     const [selectedPosition, setSelectedPosition] = useState<[number, number]>([0,0]);
@@ -116,6 +119,12 @@ const CreatePoints = () =>{
         
     }
 
+    function handleClosedModal(){
+        setIsOpenModal(false);
+        history.push('/');
+    }
+
+
     async function handleSubmit(event: FormEvent){
         event.preventDefault();
 
@@ -142,12 +151,16 @@ const CreatePoints = () =>{
         }
 
 
+        try{
+            await api.post('points', data)
+            setMessageModal('Ponto cadastrado com sucesso!');
+            setIsOpenModal(true);
+        }
+        catch(error)
+        {
+            alert('Ocorreu um erro durante o cadastro, tente novamente!');
+        };
 
-        await api.post('points', data);
-        
-        alert('Ponto de coleta criado');
-
-        history.push('/');
     }
 
     return (
@@ -160,7 +173,15 @@ const CreatePoints = () =>{
                 </Link>
             </header>
             <form onSubmit={handleSubmit}>
-                 <h1>Cadastro do <br/> ponto de coleta</h1>
+
+                <SucessModal 
+                    isOpen={isOpenModal} 
+                    Closed={handleClosedModal} 
+                    message={messageModal}
+                />
+
+
+                <h1>Cadastro do <br/> ponto de coleta</h1>
 
                 <DropZone onFileUpload={setSelectedFile} />
 

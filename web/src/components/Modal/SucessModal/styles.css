@@ -1,0 +1,35 @@
+.contentModal {
+    background: #34CB79;
+    width: 460px;
+    height: 280px;
+    position: absolute;
+    left: 50%;
+    top: 50%; 
+    margin-left: -150px;
+    margin-top: -150px;
+} 
+
+.contentModal div{
+    margin-top: 20px;
+    padding: 20px;
+    display: inline-block;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.contentModal div button{
+    width: 120px;
+    height: 56px;
+    background: #fff;
+    border-radius: 8px;
+    color: #322153;
+    font-weight: bold;
+    font-size: 16px;
+    border: 0;
+    align-self: flex-end;
+    margin-top: 36px;
+    margin-left: 10px;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
