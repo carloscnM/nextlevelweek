@@ -29,7 +29,7 @@ Faça o download ou clone do projeto e acesse o diretório via terminal ou ide p
 
 #### BackEnd
 
-`cd server/`
+`$ cd server/`
 
 Com npm
 
@@ -42,7 +42,7 @@ Com yarn
 
 #### FrontEnd
 
-`cd web/`
+`$ cd web/`
 
 Com npm
 
@@ -54,9 +54,9 @@ Com yarn
 
 #### mobile
 
-`cd mobile/`
+`$ cd mobile/`
 
-`expo start`
+`$ expo start`
 
 
 
