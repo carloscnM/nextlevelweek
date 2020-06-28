@@ -27,6 +27,20 @@ O evento proporcionou a disseminação de muito conhecimento, mostrando na prát
 
 Faça o download ou clone do projeto e acesse o diretório via terminal ou ide preferida.
 
+#### Criando Migration
+
+`cd server/`
+
+Com npm
+
+`npm run knex:migrate`
+`npm run knex:seed`
+
+Com yarn
+
+`yarn knex:migrate`
+`yarn knex:seed`
+
 #### BackEnd
 
 `$ cd server/`
