@@ -33,13 +33,15 @@ Faça o download ou clone do projeto e acesse o diretório via terminal ou ide p
 
 Com npm
 
-`npm run knex:migrate`
-`npm run knex:seed`
+`$ npm run knex:migrate`
+
+`$ npm run knex:seed`
 
 Com yarn
 
-`yarn knex:migrate`
-`yarn knex:seed`
+`$ yarn knex:migrate`
+
+`$ yarn knex:seed`
 
 #### BackEnd
 
