@@ -76,7 +76,7 @@ const Home = () =>{
                             label: 'Selecione a UF'
                         }}
                         value={uf}
-                        onValueChange={setUf}
+                        onValueChange={uf => setUf(uf)}
                         items={ ufs?.map(uf =>({
                             label: uf,
                             value: uf
@@ -88,7 +88,7 @@ const Home = () =>{
                             label: 'Selecione a cidade'
                         }}
                         value={city}
-                        onValueChange={setCity}
+                        onValueChange={city => setCity(city)}
                         items={cities?.map(city =>({
                             label: city,
                             value: city

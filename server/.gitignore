@@ -1,6 +1,8 @@
 node_modules
 uploads/*
 
+server/src/database/database.sqlite
+
 !uploads/baterias.svg
 !uploads/eletronicos.svg
 !uploads/lampadas.svg
